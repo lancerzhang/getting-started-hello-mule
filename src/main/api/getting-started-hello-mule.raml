@@ -1,0 +1,25 @@
+#%RAML 1.0
+title: Mule Flow API
+version: v1
+baseUri: http://localhost:8081
+protocols: [HTTP]
+
+/http_listener_config:
+  displayName: HTTP Listener config
+  listenerConnection:
+    host: 0.0.0.0
+    port: 8081
+
+/hellomule:
+  get:
+    displayName: Hello Mule Endpoint
+    description: Returns a greeting message from the Mule flow.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "message": "Hello Mule"
+              }
+
