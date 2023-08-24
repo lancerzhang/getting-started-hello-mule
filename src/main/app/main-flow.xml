@@ -7,8 +7,12 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="59c21718-08df-4131-a657-84ce39359f78" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
-	<flow name="get:/users/user/userInfo:mobile_api-config" doc:id="d58ed384-d149-40e3-a67f-5eb4452c69cb" >
+	<flow name="post:/users/user/userInfo:mobile_api-config" doc:id="d58ed384-d149-40e3-a67f-5eb4452c69cb" >
 		<http:listener doc:name="Listener" doc:id="a5275e63-7d5f-4344-8302-1a0d6c1f05d1" config-ref="HTTP_Listener_config" path="/users/user/userInfo"/>
+		<dw:transform-message doc:name="xxx">
+			<dw:set-payload variableName="username" resource="classpath:dwl/setUser1Req.dwl"/>
+			<dw:set-payload variableName="mail" resource="classpath:dwl/setUser2Req.dwl"/>
+		</dw:transform-message>
 		<set-payload value="userInfo" doc:name="Set Payload" doc:id="6220d5d7-fd7f-4749-be60-810b84350fa7" />
 	</flow>
 	<flow name="post:/users/user/authentication:mobile_api-config" doc:id="your-doc-id-for-authentication">

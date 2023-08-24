@@ -5,15 +5,6 @@ baseUri: http://mocksvc.mulesoft.com/mocks/xxxx/{version}
 
 /users:
   /user:
-    displayName: Create user
-    post:
-    description: Create user
-    body:
-      application/json:
-    responses:
-      200:
-        body:
-          application/json:
     /authentication:
       displayName: user authentication
       post:
@@ -26,8 +17,10 @@ baseUri: http://mocksvc.mulesoft.com/mocks/xxxx/{version}
               application/json:
     /userInfo:
       displayName: user all Information
-      get:
+      post:
         description: user all Information
+        body:
+          application/json:
         responses:
           200:
             body:

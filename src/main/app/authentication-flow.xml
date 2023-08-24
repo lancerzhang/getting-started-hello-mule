@@ -12,11 +12,15 @@
         <!-- For simplicity, let's assume it's a basic username/password check -->
 
         <http:listener doc:name="Listener" doc:id="your-listener-doc-id" config-ref="HTTP_Listener_config"/>
-        
+
         <!-- Extract username and password from the request -->
         <set-variable variableName="username" value="#[message.inboundProperties['username']]" />
         <set-variable variableName="password" value="#[message.inboundProperties['password']]" />
-        
+
+        <dw:transform-message doc:name="xxx">
+            <dw:set-payload resource="classpath:dwl/setAuthReq.dwl"/>
+        </dw:transform-message>
+
         <!-- Your authentication logic here (replace with your actual authentication logic) -->
         <choice>
             <when expression="#[vars.username == 'valid_username' and vars.password == 'valid_password']">
