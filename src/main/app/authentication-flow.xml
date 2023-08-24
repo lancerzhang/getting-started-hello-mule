@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+    xmlns="http://www.mulesoft.org/schema/mule/core"
+    xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+        http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+
+    <flow name="authenticationFlow">
+        <!-- Define your authentication logic here -->
+        <!-- For simplicity, let's assume it's a basic username/password check -->
+
+        <http:listener doc:name="Listener" doc:id="your-listener-doc-id" config-ref="HTTP_Listener_config"/>
+        
+        <!-- Extract username and password from the request -->
+        <set-variable variableName="username" value="#[message.inboundProperties['username']]" />
+        <set-variable variableName="password" value="#[message.inboundProperties['password']]" />
+        
+        <!-- Your authentication logic here (replace with your actual authentication logic) -->
+        <choice>
+            <when expression="#[vars.username == 'valid_username' and vars.password == 'valid_password']">
+                <!-- Authentication successful -->
+                <set-payload value="Authentication successful"/>
+            </when>
+            <otherwise>
+                <!-- Authentication failed -->
+                <set-payload value="Authentication failed"/>
+            </otherwise>
+        </choice>
+    </flow>
+</mule>
+

@@ -1,25 +1,42 @@
-#%RAML 1.0
-title: Mule Flow API
-version: v1
-baseUri: http://localhost:8081
-protocols: [HTTP]
+#%RAML 0.8
+title: PetStore
+version: 1.1
+baseUri: http://mocksvc.mulesoft.com/mocks/xxxx/{version}
 
-/http_listener_config:
-  displayName: HTTP Listener config
-  listenerConnection:
-    host: 0.0.0.0
-    port: 8081
-
-/hellomule:
-  get:
-    displayName: Hello Mule Endpoint
-    description: Returns a greeting message from the Mule flow.
+/users:
+  /user:
+    displayName: Create user
+    post:
+    description: Create user
+    body:
+      application/json:
     responses:
       200:
         body:
           application/json:
-            example: |
-              {
-                "message": "Hello Mule"
-              }
-
+    /authentication:
+      displayName: user authentication
+      post:
+        description: user authentication
+        body:
+          application/json:
+        responses:
+          200:
+            body:
+              application/json:
+    /userInfo:
+      displayName: user all Information
+      get:
+        description: user all Information
+        responses:
+          200:
+            body:
+              application/json:
+/notExists:
+  displayName: user authentication
+  get:
+    description: user authentication
+    responses:
+      200:
+        body:
+          application/json:
