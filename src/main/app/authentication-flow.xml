@@ -7,7 +7,7 @@
     xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
         http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 
-    <flow name="authenticationFlow">
+    <sub-flow name="authenticationFlow">
         <!-- Define your authentication logic here -->
         <!-- For simplicity, let's assume it's a basic username/password check -->
 
@@ -32,6 +32,6 @@
                 <set-payload value="Authentication failed"/>
             </otherwise>
         </choice>
-    </flow>
+    </sub-flow>
 </mule>
 
