@@ -17,8 +17,8 @@
         <set-variable variableName="username" value="#[message.inboundProperties['username']]" />
         <set-variable variableName="password" value="#[message.inboundProperties['password']]" />
 
-        <dw:transform-message doc:name="xxx">
-            <dw:set-payload resource="classpath:dwl/setAuthReq.dwl"/>
+        <dw:transform-message doc:name="setAuthRequest">
+            <dw:set-payload variableName="authRequest" resource="classpath:dwl/setAuthReq.dwl"/>
         </dw:transform-message>
 
         <!-- Your authentication logic here (replace with your actual authentication logic) -->

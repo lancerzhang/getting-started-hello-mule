@@ -16,11 +16,17 @@ baseUri: http://mocksvc.mulesoft.com/mocks/xxxx/{version}
             body:
               application/json:
     /userInfo:
-      displayName: user all Information
+      displayName: user info API
       post:
-        description: user all Information
+        description: create user
         body:
           application/json:
+        responses:
+          200:
+            body:
+              application/json:
+      get:
+        description: user all Information
         responses:
           200:
             body:
