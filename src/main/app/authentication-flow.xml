@@ -8,15 +8,24 @@
         http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 
     <sub-flow name="authenticationFlow">
-        <!-- Define your authentication logic here -->
-        <!-- For simplicity, let's assume it's a basic username/password check -->
-
+        <logger message="enter authenticationFlow" />
+        <exception-strategy ref="xxx" />
+        <object-to-string-transformer doc:name="abc" />
         <http:listener doc:name="Listener" doc:id="your-listener-doc-id" config-ref="HTTP_Listener_config"/>
 
         <!-- Extract username and password from the request -->
         <set-variable variableName="username" value="#[message.inboundProperties['username']]" />
         <set-variable variableName="password" value="#[message.inboundProperties['password']]" />
-
+            <dw:transform-message>
+                <dw:set-payload>
+                    <![CDATA[%dw 1.0 %output application/json --- {
+username:payload.username
+} ]]></dw:set-payload>
+            </dw:transform-message>
+            <dw:transform-message>
+                <dw:set-payload variableName="authRequest" resource="classpath:dwl/setAuthReq.dwl"/>
+            </dw:transform-message>
+            <json:json-to-object-transformer returnClass="com.example.bean.AuthResp" />
         <dw:transform-message doc:name="setAuthRequest">
             <dw:set-payload variableName="authRequest" resource="classpath:dwl/setAuthReq.dwl"/>
         </dw:transform-message>
