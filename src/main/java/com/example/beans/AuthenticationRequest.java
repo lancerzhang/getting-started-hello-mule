@@ -1,6 +1,6 @@
 package com.example.beans;
 
-public class AuthenticationRequest {
+public class AuthenticationRequest extends ChannelRequest {
     private String username;
     private String password;
 
