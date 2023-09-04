@@ -1,4 +1,4 @@
-package com.example.beans;
+package com.example.bean;
 
 import com.example.model.BaseRequest;
 

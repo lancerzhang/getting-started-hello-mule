@@ -4,5 +4,5 @@
 {
     email:payload.email
 } as :object {
-    class : "com.example.beans.EmailRequest"
+    class : "com.example.bean.EmailRequest"
 }

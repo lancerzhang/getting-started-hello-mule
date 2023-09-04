@@ -1,6 +1,6 @@
-package com.example.beans;
+package com.example.bean;
 
-public class EmailRequest {
+public class EmailResponse {
     private String email;
 
     public String getEmail() {

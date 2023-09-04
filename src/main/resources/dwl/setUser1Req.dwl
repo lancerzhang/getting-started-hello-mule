@@ -4,5 +4,5 @@
 {
     username:payload.username
 } as :object {
-    class : "com.example.beans.UsernameRequest"
+    class : "com.example.bean.UsernameRequest"
 }

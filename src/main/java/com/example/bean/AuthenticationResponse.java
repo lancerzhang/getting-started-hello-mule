@@ -1,6 +1,6 @@
-package com.example.beans;
+package com.example.bean;
 
-public class AuthResp extends ChannelResponse{
+public class AuthenticationResponse extends ChannelResponse{
     private String result;
 
     public String getResult() {

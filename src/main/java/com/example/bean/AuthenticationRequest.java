@@ -1,4 +1,4 @@
-package com.example.beans;
+package com.example.bean;
 
 public class AuthenticationRequest extends ChannelRequest {
     private String username;

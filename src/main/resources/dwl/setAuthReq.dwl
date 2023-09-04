@@ -5,5 +5,5 @@
     username:payload.username,
     password:payload.password
 } as :object {
-    class : "com.example.beans.AuthenticationRequest"
+    class : "com.example.bean.AuthenticationRequest"
 }
